@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Ahmad Abu Hasan on 30/11/2020
+ * Created by Ahmad Abu Hasan on 30/11/2020, 24/02/2021
  */
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -39,6 +39,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(CREATE_TABLE_BARANG);
+        db.execSQL("INSERT INTO " + TABLE_BARANG + "(BARANG_ID, BARANG_NAMA, BARANG_BELI, BARANG_STOCK, BARANG_HARGA) 
+                   VALUES 
+                   (1, 'Kuas', '1000', '10', '2000')");
+        db.execSQL("INSERT INTO " + TABLE_BARANG + "(BARANG_ID, BARANG_NAMA, BARANG_BELI, BARANG_STOCK, BARANG_HARGA) 
+                   VALUES 
+                   (2, 'Paku', '3000', '20', '4000')");
+        db.execSQL("INSERT INTO " + TABLE_BARANG + "(BARANG_ID, BARANG_NAMA, BARANG_BELI, BARANG_STOCK, BARANG_HARGA) 
+                   VALUES 
+                   (3, 'Cat', '5000', '30', '6000')");
 
     }
 
@@ -49,36 +58,36 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void add(SQLiteDatabase db){
-        ContentValues values = new ContentValues();
-        values.put(BARANG_NAMA, "Kuas");
-        values.put(BARANG_BELI, "1000");
-        values.put(BARANG_STOCK, "10");
-        values.put(BARANG_HARGA, "2000");
+//     public void add(SQLiteDatabase db){
+//         ContentValues values = new ContentValues();
+//         values.put(BARANG_NAMA, "Kuas");
+//         values.put(BARANG_BELI, "1000");
+//         values.put(BARANG_STOCK, "10");
+//         values.put(BARANG_HARGA, "2000");
 
-        db.insert(TABLE_BARANG, BARANG_NAMA, values);
-//        db.insert(TABLE_BARANG, BARANG_BELI, values);
-//        db.insert(TABLE_BARANG, BARANG_STOCK, values);
-//        db.insert(TABLE_BARANG, BARANG_HARGA, values);
-//
-        values.put(BARANG_NAMA, "Paku");
-        values.put(BARANG_BELI, "3000");
-        values.put(BARANG_STOCK, "20");
-        values.put(BARANG_HARGA, "4000");
+//         db.insert(TABLE_BARANG, BARANG_NAMA, values);
+       //db.insert(TABLE_BARANG, BARANG_BELI, values);
+       //db.insert(TABLE_BARANG, BARANG_STOCK, values);
+       //db.insert(TABLE_BARANG, BARANG_HARGA, values);
 
-//        db.insert(TABLE_BARANG, BARANG_NAMA, values);
-        db.insert(TABLE_BARANG, BARANG_BELI, values);
-//        db.insert(TABLE_BARANG, BARANG_STOCK, values);
-//        db.insert(TABLE_BARANG, BARANG_HARGA, values);
-//
-        values.put(BARANG_NAMA, "Cat");
-        values.put(BARANG_BELI, "5000");
-        values.put(BARANG_STOCK, "30");
-        values.put(BARANG_HARGA, "6000");
-//
-//        db.insert(TABLE_BARANG, BARANG_NAMA, values);
+//         values.put(BARANG_NAMA, "Paku");
+//         values.put(BARANG_BELI, "3000");
+//         values.put(BARANG_STOCK, "20");
+//         values.put(BARANG_HARGA, "4000");
+
+       //db.insert(TABLE_BARANG, BARANG_NAMA, values);
 //        db.insert(TABLE_BARANG, BARANG_BELI, values);
-        db.insert(TABLE_BARANG, BARANG_STOCK, values);
-//        db.insert(TABLE_BARANG, BARANG_HARGA, values);
-    }
+       //db.insert(TABLE_BARANG, BARANG_STOCK, values);
+       //db.insert(TABLE_BARANG, BARANG_HARGA, values);
+
+//         values.put(BARANG_NAMA, "Cat");
+//         values.put(BARANG_BELI, "5000");
+//         values.put(BARANG_STOCK, "30");
+//         values.put(BARANG_HARGA, "6000");
+
+       //db.insert(TABLE_BARANG, BARANG_NAMA, values);
+       //db.insert(TABLE_BARANG, BARANG_BELI, values);
+//        db.insert(TABLE_BARANG, BARANG_STOCK, values);
+        //db.insert(TABLE_BARANG, BARANG_HARGA, values);
+//    }
 }
