@@ -16,7 +16,7 @@ public class DBAccess {
 
     private static DBAccess instance;
     private SQLiteDatabase database;
-    private SQLiteOpenHelper openHelper;
+    private final SQLiteOpenHelper openHelper;
 
     private DBAccess(Context context) {
         this.openHelper = new DBHelper(context);
@@ -40,24 +40,42 @@ public class DBAccess {
         }
     }
 
-    public ArrayList<HashMap<String, String>> getSearchBarang(String s) {
+    public ArrayList<HashMap<String, String>> getSearchData(String s) {
         ArrayList<HashMap<String, String>> product = new ArrayList<>();
         SQLiteDatabase sQLiteDatabase = this.database;
-        Cursor cursor = sQLiteDatabase.rawQuery("SELECT * FROM barang WHERE NamaBarang LIKE '%" + s + "%' OR Harga LIKE '%" + s + "%' ORDER BY id DESC", (String[]) null);
+        Cursor cursor = sQLiteDatabase.rawQuery("SELECT * FROM data WHERE NameProduct LIKE '%" + s + "%' OR Price LIKE '%" + s + "%' ORDER BY DataId DESC", (String[]) null);
         if (cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<>();
-                map.put(DBHelper.BARANG_ID, cursor.getString(0));
-                map.put(DBHelper.BARANG_NAMA, cursor.getString(1));
-                map.put(DBHelper.BARANG_BELI, cursor.getString(2));
-                map.put(DBHelper.BARANG_STOCK, cursor.getString(3));
-                map.put(DBHelper.BARANG_HARGA, cursor.getString(4));
+                map.put(DBHelper.DATA_ID, cursor.getString(0));
+                map.put(DBHelper.DATA_NAME, cursor.getString(1));
+                map.put(DBHelper.DATA_BUY, cursor.getString(2));
+                map.put(DBHelper.DATA_STOCK, cursor.getString(3));
+                map.put(DBHelper.DATA_PRICE, cursor.getString(4));
                 product.add(map);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        this.database.close();
+        close();
         return product;
     }
 
+    public ArrayList<HashMap<String, String>> getData() {
+        ArrayList<HashMap<String, String>> data = new ArrayList<>();
+        Cursor cursor = this.database.rawQuery("SELECT * FROM data ORDER BY DataId ASC", null);
+        if (cursor.moveToFirst()) {
+            do {
+                HashMap<String, String> map = new HashMap<>();
+                map.put(DBHelper.DATA_ID, cursor.getString(0));
+                map.put(DBHelper.DATA_NAME, cursor.getString(1));
+                map.put(DBHelper.DATA_BUY, cursor.getString(2));
+                map.put(DBHelper.DATA_STOCK, cursor.getString(3));
+                map.put(DBHelper.DATA_PRICE, cursor.getString(4));
+                data.add(map);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        close();
+        return data;
+    }
 }
