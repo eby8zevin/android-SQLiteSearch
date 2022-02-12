@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Search</string>
-    <string name="beli">Beli</string>
+
+    <string name="name_product">Name Product</string>
+    <string name="buy">Buy</string>
     <string name="stock">Stock</string>
-    <string name="harga">Harga</string>
+    <string name="price">Price</string>
 </resources>
