@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -26,31 +25,31 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="5dp">
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp">
 
                 <TextView
-                    android:id="@+id/tvNamaBarang"
+                    android:id="@+id/tvNameProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sailec_regular"
-                    android:text="Nama Barang"
+                    android:text="@string/name_product"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tvBeli"
+                    android:id="@+id/tvBuy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sailec_regular"
                     android:padding="2dp"
-                    android:text="Beli"
-                    android:textColor="#ea1d2c" />
+                    android:text="@string/buy"
+                    android:textColor="#EA1D2C" />
 
                 <TextView
                     android:id="@+id/tvStock"
@@ -58,18 +57,18 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sailec_regular"
                     android:padding="2dp"
-                    android:text="Stock"
-                    android:textColor="#ea1d2c"
+                    android:text="@string/stock"
+                    android:textColor="#EA1D2C"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvHarga"
+                    android:id="@+id/tvPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sailec_regular"
                     android:padding="2dp"
-                    android:text="Harga"
-                    android:textColor="#ea1d2c" />
+                    android:text="@string/price"
+                    android:textColor="#EA1D2C" />
 
             </LinearLayout>
 
@@ -77,24 +76,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="right"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/img_delete"
-                        android:layout_width="60dp"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/abc_vector_test" />
-
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/img_delete"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/abc_vector_test" />
 
             </LinearLayout>
 
