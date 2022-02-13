@@ -43,7 +43,7 @@ public class DBAccess {
     public ArrayList<HashMap<String, String>> getSearchData(String s) {
         ArrayList<HashMap<String, String>> product = new ArrayList<>();
         SQLiteDatabase sQLiteDatabase = this.database;
-        Cursor cursor = sQLiteDatabase.rawQuery("SELECT * FROM data WHERE NameProduct LIKE '%" + s + "%' OR Price LIKE '%" + s + "%' ORDER BY DataId DESC", (String[]) null);
+        Cursor cursor = sQLiteDatabase.rawQuery("SELECT * FROM data WHERE NameProduct LIKE '%" + s + "%' OR Price LIKE '%" + s + "%' ORDER BY DataId DESC", null);
         if (cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<>();
